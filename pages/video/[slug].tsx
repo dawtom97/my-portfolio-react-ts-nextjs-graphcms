@@ -1,7 +1,6 @@
-import { gql } from "graphql-request";
-import { GetServerSideProps } from "next";
-import React from "react";
-import { cmsConnect } from "../../src/utils/cmsConnect";
+import { gql } from 'graphql-request';
+import { GetServerSideProps } from 'next';
+import { cmsConnect } from '../../src/utils/cmsConnect';
 
 export const getServerSideProps: GetServerSideProps = async (pageContext) => {
   const pageSlug = pageContext.query.slug;
@@ -49,9 +48,20 @@ type VideoProps = {
   title: string;
 };
 
-const VideoPage = (video: VideoProps) => {
-  console.log(video);
-  return <div>VideoPage</div>;
+// const changeToSeen = async(e:MouseEvent<HTMLButtonElement>,slug:string) => {
+//     e.preventDefault()
+//     await fetch("/api/changeToSeen", {
+//         method: "POST",
+//         headers:{
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({slug})
+//     })
+// }
+
+const VideoPage = ({ video }: any) => {
+  console.log(video.seen);
+  return <div></div>;
 };
 
 export default VideoPage;
