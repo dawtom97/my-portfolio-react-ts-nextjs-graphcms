@@ -1,56 +1,57 @@
-import type { NextPage } from 'next'
-import { gql } from 'graphql-request'
-import { cmsConnect } from '../src/utils/cmsConnect'
-import { randomVideo } from '../src/utils/randomVideo'
-import Image from 'next/image'
-import { imageLoader } from '../src/utils/imageLoader'
+import type { InferGetStaticPropsType } from 'next';
+import { gql } from 'graphql-request';
+import { cmsConnect } from '../src/utils/cmsConnect';
+import { AllPlacesProps } from '../src/types/AllPlaces.types';
+import styled from 'styled-components';
+import Image from 'next/image';
+import { imageLoader } from '../src/utils/imageLoader';
 
 export const getStaticProps = async () => {
   const query = gql`
-    query Videos {
-      videos {
-        createdAt
+    query AllPlaces {
+      places {
         id
-        title
-        description
-        seen
         slug
-        tag
-        thumbnail {
-          url
-        }
-        mp4 {
+        title
+        location
+        description
+        image {
           url
         }
       }
     }
-  `
+  `;
 
-  const { videos } = await cmsConnect(query)
-  console.log(videos)
+  const { places } = await cmsConnect(query);
+  console.log(places);
 
   return {
     props: {
-      videos,
+      places,
     },
-  }
-}
+  };
+};
 
-const Home: NextPage = ({ videos }: any) => {
-  console.log(videos[randomVideo(videos.length)].thumbnail.url)
+const PreviewCard = styled.article`
+   height: 250px;
+   width: 200px;
+
+   img {
+    object-fit: cover;
+   }
+`;
+
+const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(places[0].title);
   return (
-    <div className="app">
-      <div className="main-video">
-        <Image
-          loader={imageLoader}
-          width="100%"
-          height="100%"
-          alt={videos[randomVideo(videos.length)].title}
-          src={videos[randomVideo(videos.length)].thumbnail.url}
-        />
-      </div>
+    <div className='app'>
+      {places.map((place: AllPlacesProps) => (
+        <PreviewCard key={place.id}>
+          <Image loader={imageLoader} src={place.image.url} width={250} height={320} />
+        </PreviewCard>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
