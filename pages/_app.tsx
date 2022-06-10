@@ -1,8 +1,20 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../styles/global';
+import { darkTheme, lightTheme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const [theme, setTheme] = useState<string>('light');
+  const themeToggler = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
+
+  return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <GlobalStyles />
+      <Component {...pageProps} />
+      <button className="switcher" onClick={themeToggler}>Theme</button>
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
