@@ -1,18 +1,22 @@
+
+
 import { createGlobalStyle } from 'styled-components';
 
+
 type GlobalStylesProps = {
-    body:string,
-    text:string
+    body: string,
+    text: string
 }
 
 
-export const GlobalStyles = createGlobalStyle<{theme:GlobalStylesProps}>`
+export const GlobalStyles = createGlobalStyle<{ theme: GlobalStylesProps }>`
    *,
    *::before,
    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family:Nunito Sans,sans-serif; 
     }
 
     html {
@@ -20,8 +24,7 @@ export const GlobalStyles = createGlobalStyle<{theme:GlobalStylesProps}>`
     }
 
     body {
-        font-family:'Montserrat',sans-serif;
-        background-color: ${props=>props.theme.body};
-        color:${props=>props.theme.text};
+        background-color: ${props => props.theme.body};
+        color:${props => props.theme.text};
     }
 `

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { StylesProps } from './HomeTemplate.types';
 
 export const Wrapper = styled.main`
   display: flex;
@@ -10,10 +9,7 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const Banner = styled.div<StylesProps>`
-  background:linear-gradient( rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.4) 80%), url(${({ image }) => image.src});
-  background-position: center;
-  background-size: cover;
+export const Banner = styled.div`
   width: 100%;
   height: 500px;
   @media screen and (min-width: 992px) {

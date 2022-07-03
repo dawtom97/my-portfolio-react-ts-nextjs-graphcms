@@ -1,13 +1,14 @@
 import React from 'react';
-import { HomeTemplateProps } from './HomeTemplate.types';
-import * as Styled from './styles';
-import banner1 from '../../../assets/elanBanner1.jpg';
+import { Button } from '../../atoms/Button/Button';
 
-export const HomeTemplate = ({ children }: HomeTemplateProps) => {
+
+export const HomeTemplate = () => {
   return (
-    <Styled.Wrapper>
-      <Styled.Banner image={banner1}></Styled.Banner>
-      <Styled.Content>{children}</Styled.Content>
-    </Styled.Wrapper>
+    <div>
+        <Button color='primary'>Kup teraz</Button>
+        <Button color='secondary'>Download CV</Button>
+        <Button size='small' color='primary'>Kup teraz</Button>
+        <Button size='small' color='secondary'>Download CV</Button>
+    </div>
   );
 };

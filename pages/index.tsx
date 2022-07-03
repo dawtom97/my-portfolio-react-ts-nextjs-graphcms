@@ -34,9 +34,7 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
   console.log(places);
   return (
     <div className='app'>
-    <HomeTemplate places={places}>
-      <h1>aa</h1>
-    </HomeTemplate>
+       <HomeTemplate/>
     </div>
   );
 };
