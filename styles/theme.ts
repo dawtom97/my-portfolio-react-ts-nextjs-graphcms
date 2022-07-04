@@ -1,7 +1,7 @@
 const mainTheme = {
     primary: '#FB3F5C',
     primaryDark:'#b20d27',
-    primarySemiTransparent:'#a20019ba'
+    primarySemiTransparent:'#a20019ba',
 }
 
 export const lightTheme = {

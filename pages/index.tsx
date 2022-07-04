@@ -3,6 +3,7 @@ import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
 import { MainTemplate } from '../src/components/templates/MainTemplate/MainTemplate';
 import { BannerText } from '../src/components/molecules/BannerText/BannerText';
+import { Banner } from '../src/components/organisms/Banner/Banner';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -34,18 +35,7 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className='app'>
       <MainTemplate>
-        <BannerText
-          secondButtonClick={() => console.log(3)}
-          firstButtonClick={() => console.log(1)}
-          isHeading
-          badge='Hello,'
-          title='I’m'
-          titleSpan='Dawid Tomczyk'
-          desc='I’m a Graphics Designer,Designng has become my everyday affair. masting styles,grids cant be less interesting.'
-          buttonText='Download CV'
-          isMultipleButtons
-          secondButtonText='View Portfolio'
-        />
+        <Banner/>
       </MainTemplate>
     </div>
   );

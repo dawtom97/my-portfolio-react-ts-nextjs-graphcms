@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, useState } from 'react';
 import { Navbar } from '../../organisms/Navbar/Navbar';
+import * as Styled from './styles'
 
 export type MainTemplateProps = {
   children?:ReactNode
@@ -9,9 +10,9 @@ export type MainTemplateProps = {
 export const MainTemplate:FC<MainTemplateProps> = ({children}) => {
   const [isOpen, setOpen] = useState(false)
   return (
-    <div>
+    <Styled.Container>
        <Navbar isOpen={isOpen} setOpen={setOpen}/>
        {children}
-    </div>
+    </Styled.Container>
   );
 };

@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 import { NavbarProps } from './Navbar';
 
+
+
+
+
+
 export const Container = styled.nav`
   display: flex;
   background-color: ${({theme})=>theme.primary};
-  min-height: 55px;
+  min-height: 85px;
+  @media screen and (min-width:768px) {
+    min-height:50px;
+  }
+
 `
 
 export const InnerWrapper = styled.div<NavbarProps>`
@@ -15,6 +24,12 @@ export const InnerWrapper = styled.div<NavbarProps>`
   width:90%;
   max-width: 1444px;
   
+  & > a {
+    font-family: Nova mono;
+    font-size: 3rem;
+    color: #fff;
+    text-decoration: none;
+  }
   & > div.hamburger-react {
     z-index: 100;
   }
