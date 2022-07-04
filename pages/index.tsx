@@ -4,6 +4,7 @@ import { cmsConnect } from '../src/utils/cmsConnect';
 import { MainTemplate } from '../src/components/templates/MainTemplate/MainTemplate';
 import { BannerText } from '../src/components/molecules/BannerText/BannerText';
 import { Banner } from '../src/components/organisms/Banner/Banner';
+import { About } from '../src/components/organisms/About/About';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -36,6 +37,7 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <div className='app'>
       <MainTemplate>
         <Banner/>
+        <About/>
       </MainTemplate>
     </div>
   );

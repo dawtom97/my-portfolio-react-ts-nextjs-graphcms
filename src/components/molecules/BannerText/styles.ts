@@ -37,9 +37,11 @@ export const Container = styled.main<BannerTextProps>`
 
 export const ButtonsBox = styled.div<BannerTextProps>`
   display: flex;
+  flex-wrap: wrap;
+
   gap:15px;
   margin-top: 20px;
-  justify-content:${({isHeading})=> isHeading ? 'center': 'initial'};
+  justify-content:center;
   @media screen and (min-width:768px) {
       justify-content: initial;
    }
