@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
+import { Navbar } from '../../organisms/Navbar/Navbar';
 
 export type MainTemplateProps = {
   children?:ReactNode
@@ -6,9 +7,10 @@ export type MainTemplateProps = {
 
 
 export const MainTemplate:FC<MainTemplateProps> = ({children}) => {
+  const [isOpen, setOpen] = useState(false)
   return (
     <div>
-       <h1>Menu</h1>
+       <Navbar isOpen={isOpen} setOpen={setOpen}/>
        {children}
     </div>
   );

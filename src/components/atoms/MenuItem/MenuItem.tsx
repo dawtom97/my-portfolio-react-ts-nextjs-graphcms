@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
+import * as Styled from './styles'
 
 type MenuItemProps = {
     link:string,
@@ -7,7 +8,7 @@ type MenuItemProps = {
 }
 
 export const MenuItem:FC<MenuItemProps> = ({link,text}) => (
-  <li>
+  <Styled.Item>
     <Link href={link}>{text}</Link>
-  </li>
+  </Styled.Item>
 );
