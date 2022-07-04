@@ -1,19 +1,22 @@
 import React from 'react';
 import { BannerText } from '../../molecules/BannerText/BannerText';
+import { StatsBox } from '../../molecules/StatsBox/StatsBox';
 import * as Styled from './styles';
 
 export const About = () => {
   return (
-    <div>
-      <BannerText
-        firstButtonClick={() => console.log(1)}
-        title='I’m'
-        titleSpan='Dawid Tomczyk'
-        desc='I’m a Graphics Designer,Designng has become my everyday affair. masting styles,grids cant be less interesting.'
-        buttonText='Download CV'
-        isMultipleButtons
-        secondButtonText='View Portfolio'
-      />
-    </div>
+    <Styled.Container>
+      <Styled.InnerWrapper>
+        <StatsBox/>
+        <BannerText
+          firstButtonClick={() => console.log(1)}
+          title='I am a creative Graphic & UI Designer'
+          desc='I’m a Graphics Designer,Designng has become my everyday affair. masting styles,grids cant be less interesting. I’m a Graphics Designer,Designng has become my everyday affair. masting styles,grids cant be less interesting. I’m a Graphics Designer,Designng has become my everyday affair. masting styles,grids cant be less interesting.'
+          buttonText='Download CV'
+          isMultipleButtons
+          secondButtonText='View Portfolio'
+        />
+      </Styled.InnerWrapper>
+    </Styled.Container>
   );
 };
