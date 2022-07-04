@@ -10,9 +10,6 @@ export const Container = styled.nav`
   display: flex;
   background-color: ${({theme})=>theme.primary};
   min-height: 85px;
-  @media screen and (min-width:768px) {
-    min-height:50px;
-  }
 
 `
 
@@ -28,7 +25,18 @@ export const InnerWrapper = styled.div<NavbarProps>`
     font-family: Nova mono;
     font-size: 3rem;
     color: #fff;
+    position: relative;
     text-decoration: none;
+    &::after {
+      content: "";
+      position: absolute;
+      width:100%;
+      height: 100%;
+      bottom: -8px;
+    left: -15px;
+    border-left: 5px solid #fff;
+    border-bottom: 5px dotted #fff;
+    }
   }
   & > div.hamburger-react {
     z-index: 100;

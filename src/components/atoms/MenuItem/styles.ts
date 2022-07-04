@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MenuListProps } from '../../molecules/MenuList/MenuList';
 
 
 export const Item = styled.li`

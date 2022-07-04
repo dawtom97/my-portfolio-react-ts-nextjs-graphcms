@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-  min-height: 570px;
+   margin:30px 0;
+   @media screen and (min-width:768px) {
+      margin:60px 0;
+   }
 `
 
 export const InnerWrapper = styled.div`
@@ -13,7 +16,10 @@ export const InnerWrapper = styled.div`
    flex-direction: column;
    gap: 40px;
    @media screen and (min-width:768px) {
-      flex-direction: row;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      min-height: 600px;
    }
 
 `

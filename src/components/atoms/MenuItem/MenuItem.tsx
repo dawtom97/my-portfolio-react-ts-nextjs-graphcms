@@ -4,11 +4,15 @@ import * as Styled from './styles'
 
 type MenuItemProps = {
     link:string,
-    text:string
+    text:string,
+
 }
 
-export const MenuItem:FC<MenuItemProps> = ({link,text}) => (
-  <Styled.Item>
-    <Link href={link}>{text}</Link>
+export const MenuItem:FC<MenuItemProps> = ({link,text}) => {
+
+  return(
+  <Styled.Item >
+    <Link  href={link}>{text}</Link>
   </Styled.Item>
 );
+  }
