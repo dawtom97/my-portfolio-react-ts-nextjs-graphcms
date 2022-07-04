@@ -6,11 +6,11 @@ const mainTheme = {
 
 export const lightTheme = {
     body: '#FFF',
-    text: '#363537',
+    text: '#191018',
     ...mainTheme
 }
 export const darkTheme = {
     body: '#363537',
-    text: '#FAFAFA',
+    text: '#191018',
     ...mainTheme
 }
