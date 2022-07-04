@@ -1,16 +1,16 @@
 const mainTheme = {
     primary: '#FB3F5C',
     primaryDark:'#b20d27',
-    primaryDarker:'#a20019'
+    primarySemiTransparent:'#a20019ba',
 }
 
 export const lightTheme = {
     body: '#FFF',
-    text: '#363537',
+    text: '#191018',
     ...mainTheme
 }
 export const darkTheme = {
     body: '#363537',
-    text: '#FAFAFA',
+    text: '#191018',
     ...mainTheme
 }

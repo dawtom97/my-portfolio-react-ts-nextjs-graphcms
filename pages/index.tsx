@@ -1,7 +1,10 @@
 import type { InferGetStaticPropsType } from 'next';
 import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
-import { HomeTemplate } from '../src/components/templates/HomeTemplate/HomeTemplate';
+import { MainTemplate } from '../src/components/templates/MainTemplate/MainTemplate';
+import { BannerText } from '../src/components/molecules/BannerText/BannerText';
+import { Banner } from '../src/components/organisms/Banner/Banner';
+import { About } from '../src/components/organisms/About/About';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -28,13 +31,14 @@ export const getStaticProps = async () => {
   };
 };
 
-
-
 const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
   console.log(places);
   return (
     <div className='app'>
-       <HomeTemplate/>
+      <MainTemplate>
+        <Banner/>
+        <About/>
+      </MainTemplate>
     </div>
   );
 };

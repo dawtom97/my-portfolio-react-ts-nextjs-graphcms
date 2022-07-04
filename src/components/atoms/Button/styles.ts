@@ -52,9 +52,9 @@ const SIZE = {
       
     `,
   regular: css`
-      min-height: 40px;
+      min-height: 50px;
       font-size: 1.4rem;
-      min-width: 150px;
+      min-width: 220px;
     `
 }
 
