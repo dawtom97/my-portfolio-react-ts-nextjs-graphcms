@@ -38,14 +38,14 @@ export const BannerText: FC<BannerTextProps> = ({
       <Paragraph>{desc}</Paragraph>
       {isMultipleButtons ? (
         <Styled.ButtonsBox isHeading={isHeading}>
-          <Button onClick={firstButtonClick}>{buttonText}</Button>
-          <Button onClick={secondButtonClick} color='secondary'>
+          <Button ariaLabel={`${buttonText} button`} onClick={firstButtonClick}>{buttonText}</Button>
+          <Button ariaLabel={`${secondButtonText} button`} onClick={secondButtonClick} color='secondary'>
             {secondButtonText}
           </Button>
         </Styled.ButtonsBox>
       ) : (
         <Styled.ButtonsBox isHeading={isHeading}>
-          <Button onClick={firstButtonClick}>{buttonText}</Button>
+          <Button ariaLabel={`${buttonText} button`} onClick={firstButtonClick}>{buttonText}</Button>
         </Styled.ButtonsBox>
       )}
     </Styled.Container>
