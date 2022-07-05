@@ -8,23 +8,13 @@ import { NavbarProps } from './Navbar';
 
 export const Container = styled.nav`
   display: flex;
-  background-color: ${({theme})=>theme.primary};
-  min-height: 85px;
-
-`
-
-export const InnerWrapper = styled.div<NavbarProps>`
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin:0 auto;
-  width:90%;
-  max-width: 1444px;
-  
+  padding: 30px 40px;
   & > a {
     font-family: Nova mono;
     font-size: 3rem;
-    color: #fff;
+    margin-left: 10px;
+    color: ${({ theme }) => theme.primary};
     position: relative;
     text-decoration: none;
     &::after {
@@ -34,18 +24,19 @@ export const InnerWrapper = styled.div<NavbarProps>`
       height: 100%;
       bottom: -8px;
     left: -15px;
-    border-left: 5px solid #fff;
-    border-bottom: 5px dotted #fff;
+    border-left: 5px solid ${({ theme }) => theme.primary};
+    border-bottom: 5px dotted ${({ theme }) => theme.primary};
     }
   }
   & > div.hamburger-react {
     z-index: 100;
   }
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width:992px) {
     
     div.hamburger-react {
         display: none;
     }
   }
+
 `

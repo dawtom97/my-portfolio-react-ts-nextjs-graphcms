@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background-color: #fff;
   position: relative;
-  width:300px;
+  width: 100%;
+  margin-left: 20px;
   min-height: 400px;
   padding:25px;
-  @media screen and (min-width:768px) {
+  @media screen and (min-width:992px) {
      width: 400px;
    }
 

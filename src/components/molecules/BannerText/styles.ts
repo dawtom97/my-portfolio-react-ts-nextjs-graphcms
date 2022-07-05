@@ -3,21 +3,21 @@ import { BannerTextProps } from './BannerText';
 
 
 export const Container = styled.main<BannerTextProps>`
-   text-align:${({isHeading})=> isHeading ? 'center': 'left'};
+   text-align:${({ isHeading }) => isHeading ? 'center' : 'left'};
    flex:2;
-   @media screen and (min-width:768px) {
+   @media screen and (min-width:992px) {
       text-align: left;
    }
    & > p {
     font-size: 2.2rem;
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:992px) {
       width:70%;
    }
    }
 
    & > p:first-of-type {
     font-size: 2.8rem;
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:992px) {
       font-size: 3.2rem;
    }
 
@@ -25,12 +25,12 @@ export const Container = styled.main<BannerTextProps>`
    & > h1, & > h2 {
     font-size: 3.2rem;
     margin-bottom: 12px;
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:992px) {
       font-size: 5.5rem;
    }
 
     & > span {
-      color:${({theme})=>theme.primary}
+      color:${({ theme }) => theme.primary}
     }
    }
 `
@@ -42,7 +42,7 @@ export const ButtonsBox = styled.div<BannerTextProps>`
   gap:15px;
   margin-top: 20px;
   justify-content:center;
-  @media screen and (min-width:768px) {
+  @media screen and (min-width:992px) {
       justify-content: initial;
    }
 `

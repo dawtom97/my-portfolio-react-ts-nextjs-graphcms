@@ -8,41 +8,26 @@ const OPEN = css`
 
 
 export const Container = styled.ul<MenuListProps>`
-  color: #fff;
+  color: ${({ theme }) => theme.text};
   display: flex;
   list-style: none;
-  gap: 18px;
-  position: fixed;
-  flex-direction: column;
-  justify-content:center;
   align-items: center;
-  padding: 50px 30px;
-  min-height: 100vh;
-  top:0;
-  left: 0;
-  background-color: ${({theme})=>theme.primarySemiTransparent};
-  z-index: 99;
-  width: 100%;
+  justify-content: center;
+  gap: 35px;
 
-  & > li {
-    margin-bottom: 10px;
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    line-height: 0;
   }
 
-  transform:translateX(-100%);
-  transition: 0.5s;
-  @media screen and (min-width:768px) {
-    display: flex;
-    position: initial;
-    min-height: initial;
-    flex-direction: row;
-    background-color: transparent;
-    width: initial;
-    padding: 0;
-    transform:translateX(0);
-    & > li {
-      margin:0;
+  & svg {
+    font-size: 2.5rem;
+    display: none;
+    cursor: pointer;
+    @media screen and (min-width:992px) {
+       display: block;
     }
   }
-
-  ${({isOpen}) => isOpen && OPEN}
 `
