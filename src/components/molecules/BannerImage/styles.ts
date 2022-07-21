@@ -14,8 +14,8 @@ export const Container = styled.div`
       height: 100%;
       bottom: -15px;
     right: -15px;
-    border-right: 5px dotted ${({theme})=>theme.text};;
-    border-bottom: 5px dotted ${({theme})=>theme.primary};;
+    border-right: 5px dotted ${({ theme }) => theme.text};;
+    border-bottom: 5px dotted ${({ theme }) => theme.primary};;
     }
     &::after {
       content: "";
@@ -24,10 +24,10 @@ export const Container = styled.div`
       height: 100%;
       bottom: -25px;
     right: -25px;
-    border-right: 5px solid ${({theme})=>theme.primary};
-    border-bottom: 5px solid ${({theme})=>theme.text};
+    border-right: 5px solid ${({ theme }) => theme.primary};
+    border-bottom: 5px solid ${({ theme }) => theme.text};
     }
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:992px) {
       min-height: 700px;
       width: 100%;
    }

@@ -63,7 +63,6 @@ export const Container = styled.button<ButtonProps>`
   border: none;
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
   font-weight: 400;
   outline: none;
   letter-spacing: 1px;

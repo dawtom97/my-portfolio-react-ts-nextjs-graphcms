@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { MenuList } from '../../molecules/MenuList/MenuList';
 import * as Styled from './styles';
-import Hamburger from 'hamburger-react';
 import { Dispatch, FC, SetStateAction } from 'react';
 
 export type NavbarProps = {
@@ -12,11 +11,10 @@ export type NavbarProps = {
 export const Navbar: FC<NavbarProps> = ({ isOpen, setOpen }) => {
   return (
     <Styled.Container>
-      <Styled.InnerWrapper isOpen={isOpen}>
-        <Link href='./'>WhatsUp</Link>
+    
+        <Link href='./'>dawtom97</Link>
         <MenuList isOpen={isOpen} />
-        <Hamburger size={20} label='Show menu' color='#fff' toggled={isOpen} toggle={setOpen} />
-      </Styled.InnerWrapper>
+     
     </Styled.Container>
   );
 };
