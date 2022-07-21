@@ -13,9 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Component {...pageProps} />
-      {/* <button className='switcher' onClick={themeToggler}>
-        Theme
-      </button> */}
     </ThemeProvider>
   );
 }
