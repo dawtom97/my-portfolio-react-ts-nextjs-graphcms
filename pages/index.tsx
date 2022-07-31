@@ -2,6 +2,7 @@ import type { InferGetStaticPropsType } from 'next';
 import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
 import { About } from '../src/components/AboutSection/AboutSection';
+import { Navbar } from '../src/components/Navbar/Navbar';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -35,6 +36,7 @@ export const getStaticProps = async () => {
 const Home = ({ aboutInfo,contactInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className='app'>
+      <Navbar/>
       <About aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
     </div>
   );

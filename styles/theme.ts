@@ -7,11 +7,11 @@ const mainTheme = {
 
 export const lightTheme = {
     body: '#FFF',
-    text: '#191018',
+    text: '#262728',
     ...mainTheme
 }
 export const darkTheme = {
     body: '#363537',
-    text: '#191018',
+    text: '#262728',
     ...mainTheme
 }
