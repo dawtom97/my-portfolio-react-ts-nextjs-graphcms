@@ -1,11 +1,13 @@
 import React from 'react'
-import { MainTemplate } from '../src/components/templates/MainTemplate/MainTemplate'
+import { Navbar } from '../src/components/Navbar/Navbar'
 
 const projects = () => {
   return (
-    <MainTemplate>
-     <div>projects</div>
-    </MainTemplate>
+
+     <div>
+      <Navbar/>
+     </div>
+ 
     
   )
 }

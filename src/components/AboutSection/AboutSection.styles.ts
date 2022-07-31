@@ -83,7 +83,13 @@ interface IStyledProps {
     }
   `;
   
-  export const Wrapper = styled.div`
-    max-width: 700px;
-    padding: 25px;
+  export const Wrapper = styled.div`  
+    margin: 25px;
+    border-bottom: 1px solid #e0e1e2;
+    padding-bottom: 50px;
+
+    @media (min-width:992px) {
+       margin: 0 25px;
+       padding:30px 0 50px;
+    }
   `;
