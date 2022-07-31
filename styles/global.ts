@@ -8,7 +8,6 @@ type GlobalStylesProps = {
     text: string
 }
 
-
 export const GlobalStyles = createGlobalStyle<{ theme: GlobalStylesProps }>`
    *,
    *::before,
@@ -16,7 +15,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: GlobalStylesProps }>`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family:Nunito Sans,sans-serif; 
+      font-family:Poppins,sans-serif; 
     }
 
     html {
@@ -29,5 +28,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: GlobalStylesProps }>`
     body {
         background-color: ${props => props.theme.body};
         color:${props => props.theme.text};
+
     }
 `

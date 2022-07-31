@@ -1,40 +1,41 @@
 import type { InferGetStaticPropsType } from 'next';
 import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
-import { MainTemplate } from '../src/components/templates/MainTemplate/MainTemplate';
+import { About } from '../src/components/AboutSection/AboutSection';
 
 export const getStaticProps = async () => {
   const query = gql`
-    query AllPlaces {
-      places {
-        id
-        slug
+    query HomepageQuery {
+      aboutInfo {
         title
-        location
-        description
-        image {
-          url
-        }
+        content
+      }
+      contactInfo {
+        githubLink
+        facebookLink
+        email
+        residence
+        linkedinLink
+        telephone
+        freelance
       }
     }
   `;
 
-  const { places } = await cmsConnect(query);
+  const { aboutInfo, contactInfo } = await cmsConnect(query);
 
   return {
     props: {
-      places,
+      aboutInfo,
+      contactInfo
     },
   };
 };
 
-const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(places);
+const Home = ({ aboutInfo,contactInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className='app'>
-      <MainTemplate>
-      
-      </MainTemplate>
+      <About aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
     </div>
   );
 };
