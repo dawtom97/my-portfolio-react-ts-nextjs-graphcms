@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 interface IStyledProps {
-    isActive: boolean;
-  }
-  
-  export const CircleButton = styled.button<IStyledProps>`
+  isActive: boolean;
+}
+
+export const CircleButton = styled.button<IStyledProps>`
     width: 15px;
     height: 15px;
     border: 2px solid #fb3f5c;
@@ -13,14 +13,15 @@ interface IStyledProps {
     transition: 0.4s;
     cursor: pointer;
     ${({ isActive }) =>
-      isActive &&
-      css`
+    isActive &&
+    css`
         background-color: #fb3f5c;
       `}
   `;
-  export const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    justify-content: center;
     align-items: center;
     margin-bottom: 25px;
   
@@ -28,9 +29,11 @@ interface IStyledProps {
       width: 70%;
       display: flex;
       justify-content: space-between;
+      
     }
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       flex-direction: row;
+      justify-content: flex-start;
       gap: 50px;
       & > div {
         width: 30%;
@@ -38,16 +41,16 @@ interface IStyledProps {
       }
     }
   `;
-  
-  export const Heading = styled.h2`
+
+export const Heading = styled.h2`
     color: #262728;
     font-size: 5.5rem;
   `;
-  export const InfoWrapper = styled.div`
+export const InfoWrapper = styled.div`
     font-size: 1.5rem;
   
     & > h3 {
-      color: #fb3f5c;
+      color: ${({ theme }) => theme.primary};
       text-transform: uppercase;
     }
     & > p {
@@ -56,13 +59,19 @@ interface IStyledProps {
       min-height: 120px;
     }
   `;
-  
-  export const ContactWrapper = styled.div`
+
+export const ContactWrapper = styled.div`
     margin-top: 2.6rem;
     ul {
       list-style: none;
       display: flex;
-      gap: 50px;
+      flex-direction: column;
+      @media (min-width:992px) {
+        gap: 50px;
+        flex-direction: row;
+      }
+  
+   
       div {
         width: 50%;
       }
@@ -77,13 +86,17 @@ interface IStyledProps {
       color: #262728;
     }
     strong {
-      width: 90px;
+      width: 100%;   
       display: inline-block;
       font-weight: 600;
+      @media (min-width:992px) {
+        width: 90px;
+      }
+  
     }
   `;
-  
-  export const Wrapper = styled.div`  
+
+export const Wrapper = styled.div`  
     margin: 25px;
     border-bottom: 1px solid #e0e1e2;
     padding-bottom: 50px;

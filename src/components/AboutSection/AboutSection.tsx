@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react';
+import { RefObject, useRef, useState } from 'react';
 import TypeAnimation from 'react-type-animation';
 import { clickSound as sound } from '../../constants/sounds';
+import { Heading } from '../Heading/Heading';
 import * as Styled from './AboutSection.styles';
 
 interface IAbout {
@@ -9,24 +10,24 @@ interface IAbout {
     content: boolean;
   }[];
   contactInfo: {
-    email:string,
-    residence:string,
-    freelance:string
-  }
+    email: string;
+    residence: string;
+    freelance: string;
+  };
+  innerRef:RefObject<HTMLDivElement>
 }
 
-export const About = ({ aboutInfo, contactInfo }: IAbout) => {
-  console.log(contactInfo)
+export const About = ({ aboutInfo, contactInfo,innerRef }: IAbout) => {
   const [activeInfo, setActiveInfo] = useState(0);
   const [info, setInfo] = useState(aboutInfo);
   const [animationPlay, setAnimationPlay] = useState(false);
 
-  const clickSound = useRef<HTMLAudioElement | undefined | any>(
+  const clickSound = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== 'undefined' ? new Audio(sound) : undefined,
   );
 
   const handleClick = (index: number) => {
-    clickSound.current.play();
+    clickSound.current?.play();
     setAnimationPlay((prev) => !prev);
     setActiveInfo(index);
     setTimeout(() => {
@@ -34,9 +35,9 @@ export const About = ({ aboutInfo, contactInfo }: IAbout) => {
     }, 1500);
   };
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper ref={innerRef}>
       <Styled.TitleWrapper>
-        <Styled.Heading>About Me</Styled.Heading>
+        <Heading level='h2'>About Me</Heading>
         <div>
           {info.map((item, index) => (
             <Styled.CircleButton

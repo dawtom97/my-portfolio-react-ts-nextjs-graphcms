@@ -93,23 +93,7 @@ export const Nav = styled.nav<IStyleProps>`
     & li {
       margin: 25px 0;
     }
-    & button {
-      padding: 0 35px;
-      border-radius: 64px;
-      border: 1px solid ${({ theme }) => theme.primary};
-      background: none;
-      font-size: 12px;
-      font-weight: 700;
-      color: ${({ theme }) => theme.primary};
-      cursor: pointer;
-      height: 50px;
-      & > svg {
-        margin-left: 5px;
-      }
-      @media (min-width: 992px) {
-        height: initial;
-      }
-    }
+
   `;
 
 export const CustomLink = styled.a<IStyleProps>`

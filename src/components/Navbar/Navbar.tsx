@@ -4,6 +4,7 @@ import * as Styled from './Navbar.styles';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {FaDownload} from 'react-icons/fa'
+import { Button } from '../Button/Button';
 
 
 export const Navbar = () => {
@@ -39,7 +40,7 @@ export const Navbar = () => {
               <Styled.CustomLink>CONTACTS</Styled.CustomLink>
             </Link>
           </li>
-          <button>DOWNLOAD CV <FaDownload/></button>
+          <Button>DOWNLOAD CV <FaDownload/></Button>
         </ul>
       </Styled.Nav>
     </Styled.Wrapper>

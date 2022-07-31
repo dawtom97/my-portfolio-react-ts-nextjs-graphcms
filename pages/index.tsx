@@ -3,6 +3,9 @@ import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
 import { About } from '../src/components/AboutSection/AboutSection';
 import MainTemplate from '../src/templates/MainTemplate/MainTemplate';
+import { BannerSection } from '../src/components/BannerSection/BannerSection';
+import { RefObject, useRef } from 'react';
+import { ContactSection } from '../src/components/ContactSection/ContactSection';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -34,11 +37,23 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ aboutInfo, contactInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const aboutRef: RefObject<HTMLDivElement> = useRef(null);
+  const contactRef: RefObject<HTMLDivElement> = useRef(null);
+
+  const handleSmoothScroll = (ref: RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className='app'>
       <MainTemplate>
         <div>
-          <About aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
+          <BannerSection
+            contactScroll={() => handleSmoothScroll(contactRef)}
+            aboutScroll={() => handleSmoothScroll(aboutRef)}
+          />
+          <About innerRef={aboutRef} aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
+          <ContactSection innerRef={contactRef} />
         </div>
       </MainTemplate>
     </div>

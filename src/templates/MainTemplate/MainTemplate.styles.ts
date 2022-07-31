@@ -5,7 +5,6 @@ export const Wrapper = styled.div``;
 export const InnerWrapper = styled.main`
   @media (min-width: 992px) {
     margin-left: 36%;
-    margin-top: calc(7% + 40px);
     margin-right: 120px;
     position: relative;
     &::before {
