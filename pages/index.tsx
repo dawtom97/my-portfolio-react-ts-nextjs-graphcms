@@ -53,7 +53,7 @@ const Home = ({ aboutInfo, contactInfo }: InferGetStaticPropsType<typeof getStat
             aboutScroll={() => handleSmoothScroll(aboutRef)}
           />
           <About innerRef={aboutRef} aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
-          <ContactSection innerRef={contactRef} />
+          <ContactSection contactInfo={contactInfo[0]} innerRef={contactRef} />
         </div>
       </MainTemplate>
     </div>

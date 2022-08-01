@@ -13,6 +13,6 @@ export const Text = styled.h2<IHeading>`
   font-size: 5rem;
   ${({isLarge}) => isLarge && LARGE}
   @media (min-width:992px) {
-    font-size:${({isLarge}) => isLarge ? '4.2vw' : '3.8vw'}
+    font-size:${({isLarge}) => isLarge ? '4.2vw' : '3.3vw'}
   }
 `
