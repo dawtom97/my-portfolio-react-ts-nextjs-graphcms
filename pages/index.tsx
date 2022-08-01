@@ -4,7 +4,7 @@ import { cmsConnect } from '../src/utils/cmsConnect';
 import { About } from '../src/components/AboutSection/AboutSection';
 import MainTemplate from '../src/templates/MainTemplate/MainTemplate';
 import { BannerSection } from '../src/components/BannerSection/BannerSection';
-import { RefObject, useContext, useRef } from 'react';
+import { RefObject, useContext, useRef, useState } from 'react';
 import { ContactSection } from '../src/components/ContactSection/ContactSection';
 import { SoundContext } from '../src/context/SoundContext';
 
@@ -40,7 +40,8 @@ export const getStaticProps = async () => {
 const Home = ({ aboutInfo, contactInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const aboutRef: RefObject<HTMLDivElement> = useRef(null);
   const contactRef: RefObject<HTMLDivElement> = useRef(null);
-  const {soundClickSuccess} = useContext(SoundContext);
+  const { soundClickSuccess } = useContext(SoundContext);
+
 
   const handleSmoothScroll = (ref: RefObject<HTMLDivElement>) => {
     soundClickSuccess();
@@ -59,6 +60,7 @@ const Home = ({ aboutInfo, contactInfo }: InferGetStaticPropsType<typeof getStat
           <ContactSection contactInfo={contactInfo[0]} innerRef={contactRef} />
         </div>
       </MainTemplate>
+
     </div>
   );
 };

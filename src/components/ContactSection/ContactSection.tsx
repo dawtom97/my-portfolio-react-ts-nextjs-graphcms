@@ -1,9 +1,11 @@
 import * as Styled from './ContactSection.styles';
-import React, { RefObject, SyntheticEvent, useContext, useState } from 'react';
+import React, { RefObject, SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { Button } from '../Button/Button';
 import { Heading } from '../Heading/Heading';
 import { BiRightArrow } from 'react-icons/bi';
 import { SoundContext } from '../../context/SoundContext';
+import { Modal } from '../Modal/Modal';
+import { AnimatePresence } from 'framer-motion';
 
 
 interface IContact {
@@ -25,6 +27,18 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
   const [email, setEmail] = useState<any>(initialState);
   const [errors, setErrors] = useState<string[]>([]);
   const {soundClickFailure, soundClickSuccess} = useContext(SoundContext);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(prev => !prev);
+  const closeModal = () => setModalOpen(false)
+
+  useEffect(()=>{
+    const toggler = setTimeout(()=>{
+       closeModal()
+    },3000);
+    return () => clearInterval(toggler);
+  },[modalOpen])
+
 
   const validateEmail = (data: any) => {
     const errors: string[] = [];
@@ -38,7 +52,6 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
   const sendEmail = async (e: SyntheticEvent) => {
     e.preventDefault();
     const isValid = validateEmail(email);
-    console.log(isValid);
     if (isValid === true) {
       fetch('/api/email', {
         method: 'POST',
@@ -50,10 +63,14 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
       });
       setEmail(initialState);
       soundClickSuccess();
+      openModal();
+      setErrors([]);
     } else {
       setErrors(isValid);
       soundClickFailure();
+      openModal();
     }
+    console.log(errors);
 
   };
 
@@ -101,11 +118,8 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
                 name='content'
                 placeholder='To write'
               ></textarea>
-              <Styled.ErrorsBox>
-              {errors ? errors.map((er)=><p key={er}>{er}</p>) : null}
-              </Styled.ErrorsBox>
             </div>
-            <Button type='submit'>
+            <Button disabled={modalOpen ? true : false} type='submit'>
               SEND MESSAGE <BiRightArrow />
             </Button>
           </form>
@@ -128,6 +142,9 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
           </Styled.RightWrapper>
         </Styled.InfoWrapper>
       </Styled.InnerWrapper>
+      <AnimatePresence initial={true} exitBeforeEnter={true} onExitComplete={() => null}>
+        {modalOpen && <Modal isError={errors.length ? true : false}  msg={errors.length ? 'Incorrect email or message' : 'Message sent'} />}
+      </AnimatePresence>
     </Styled.Wrapper>
   );
 };
