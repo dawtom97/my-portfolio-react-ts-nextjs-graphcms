@@ -1,8 +1,9 @@
 import * as Styled from './ContactSection.styles';
-import React, { RefObject, SyntheticEvent, useState } from 'react';
+import React, { RefObject, SyntheticEvent, useContext, useState } from 'react';
 import { Button } from '../Button/Button';
 import { Heading } from '../Heading/Heading';
 import { BiRightArrow } from 'react-icons/bi';
+import { SoundContext } from '../../context/SoundContext';
 
 
 interface IContact {
@@ -23,6 +24,7 @@ const initialState = {
 export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
   const [email, setEmail] = useState<any>(initialState);
   const [errors, setErrors] = useState<string[]>([]);
+  const {soundClickFailure, soundClickSuccess} = useContext(SoundContext);
 
   const validateEmail = (data: any) => {
     const errors: string[] = [];
@@ -47,8 +49,10 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
         body: JSON.stringify(email),
       });
       setEmail(initialState);
+      soundClickSuccess();
     } else {
       setErrors(isValid);
+      soundClickFailure();
     }
 
   };
@@ -101,7 +105,6 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
               {errors ? errors.map((er)=><p key={er}>{er}</p>) : null}
               </Styled.ErrorsBox>
             </div>
-
             <Button type='submit'>
               SEND MESSAGE <BiRightArrow />
             </Button>

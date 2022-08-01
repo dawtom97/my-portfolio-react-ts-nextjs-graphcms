@@ -1,6 +1,7 @@
-import { RefObject, useRef, useState } from 'react';
+import { RefObject, useContext, useRef, useState } from 'react';
 import TypeAnimation from 'react-type-animation';
 import { clickSound as sound } from '../../constants/sounds';
+import { SoundContext } from '../../context/SoundContext';
 import { Heading } from '../Heading/Heading';
 import * as Styled from './AboutSection.styles';
 
@@ -21,13 +22,11 @@ export const About = ({ aboutInfo, contactInfo,innerRef }: IAbout) => {
   const [activeInfo, setActiveInfo] = useState(0);
   const [info, setInfo] = useState(aboutInfo);
   const [animationPlay, setAnimationPlay] = useState(false);
+  const {soundClickSuccess} = useContext(SoundContext)
 
-  const clickSound = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== 'undefined' ? new Audio(sound) : undefined,
-  );
 
   const handleClick = (index: number) => {
-    clickSound.current?.play();
+    soundClickSuccess();
     setAnimationPlay((prev) => !prev);
     setActiveInfo(index);
     setTimeout(() => {

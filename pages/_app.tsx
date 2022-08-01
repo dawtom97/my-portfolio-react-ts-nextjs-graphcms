@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/global';
 import { darkTheme, lightTheme } from '../styles/theme';
 import '@fontsource/open-sans/400.css';
+import { SoundContextProvider } from '../src/context/SoundContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<string>('light');
@@ -11,11 +12,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      <Component {...pageProps} />
-      <button className='switcher' onClick={themeToggler}>
-        Theme
-      </button>
+      <SoundContextProvider>
+        <GlobalStyles />
+        <Component {...pageProps} />
+        <button className='switcher' onClick={themeToggler}>
+          Theme
+        </button>
+      </SoundContextProvider>
     </ThemeProvider>
   );
 }
