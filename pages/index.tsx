@@ -1,13 +1,14 @@
 import type { InferGetStaticPropsType } from 'next';
 import { gql } from 'graphql-request';
 import { cmsConnect } from '../src/utils/cmsConnect';
-import { About } from '../src/components/AboutSection/AboutSection';
+import { AboutSection } from '../src/components/AboutSection/AboutSection';
 import MainTemplate from '../src/templates/MainTemplate/MainTemplate';
 import { BannerSection } from '../src/components/BannerSection/BannerSection';
 import { RefObject, useContext, useRef, useState } from 'react';
 import { ContactSection } from '../src/components/ContactSection/ContactSection';
 import { SoundContext } from '../src/context/SoundContext';
 import { SkillsSection } from '../src/components/SkillsSection/SkillsSection';
+import { ExperienceSection } from '../src/components/ExperienceSection/ExperienceSection';
 
 export const getStaticProps = async () => {
   const query = gql`
@@ -30,21 +31,33 @@ export const getStaticProps = async () => {
         details
         desc
       }
+      experiences {
+        title
+        desc
+        details
+        duration
+      }
     }
   `;
 
-  const { aboutInfo, contactInfo, skills } = await cmsConnect(query);
+  const { aboutInfo, contactInfo, skills,experiences } = await cmsConnect(query);
 
   return {
     props: {
       aboutInfo,
       contactInfo,
-      skills
+      skills,
+      experiences
     },
   };
 };
 
-const Home = ({ aboutInfo, contactInfo,skills }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({
+  aboutInfo,
+  contactInfo,
+  skills,
+  experiences
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const aboutRef: RefObject<HTMLDivElement> = useRef(null);
   const contactRef: RefObject<HTMLDivElement> = useRef(null);
   const { soundClickSuccess } = useContext(SoundContext);
@@ -62,7 +75,8 @@ const Home = ({ aboutInfo, contactInfo,skills }: InferGetStaticPropsType<typeof 
             contactScroll={() => handleSmoothScroll(contactRef)}
             aboutScroll={() => handleSmoothScroll(aboutRef)}
           />
-          <About innerRef={aboutRef} aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
+          <AboutSection innerRef={aboutRef} aboutInfo={aboutInfo} contactInfo={contactInfo[0]} />
+          <ExperienceSection experiences={experiences} />
           <SkillsSection skillsInfo={skills} />
           <ContactSection contactInfo={contactInfo[0]} innerRef={contactRef} />
         </div>

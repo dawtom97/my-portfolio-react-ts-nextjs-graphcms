@@ -33,6 +33,7 @@ export const TitleWrapper = styled.div`
     }
     @media (min-width: 992px) {
       flex-direction: row;
+      margin-bottom: 0px;
       justify-content: flex-start;
       gap: 50px;
       & > div {
@@ -48,10 +49,16 @@ export const Heading = styled.h2`
   `;
 export const InfoWrapper = styled.div`
     font-size: 1.5rem;
-  
+    text-align: center;
+
+    @media (min-width:992px) {
+      text-align: left;
+    }
     & > h3 {
       color: ${({ theme }) => theme.primary};
       text-transform: uppercase;
+      font-size: 1.5rem;
+      margin-bottom: 40px;
     }
     & > p {
       margin: 1.5rem 0;
@@ -62,6 +69,7 @@ export const InfoWrapper = styled.div`
 
 export const ContactWrapper = styled.div`
     margin-top: 2.6rem;
+
     ul {
       list-style: none;
       display: flex;

@@ -8,16 +8,16 @@ import { SoundContextProvider } from '../src/context/SoundContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<string>('light');
-  const themeToggler = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
+ // const themeToggler = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <SoundContextProvider>
         <GlobalStyles />
         <Component {...pageProps} />
-        <button className='switcher' onClick={themeToggler}>
+        {/* <button className='switcher' onClick={themeToggler}>
           Theme
-        </button>
+        </button> */}
       </SoundContextProvider>
     </ThemeProvider>
   );

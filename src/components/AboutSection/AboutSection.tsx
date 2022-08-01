@@ -18,7 +18,7 @@ interface IAbout {
   innerRef:RefObject<HTMLDivElement>
 }
 
-export const About = ({ aboutInfo, contactInfo,innerRef }: IAbout) => {
+export const AboutSection = ({ aboutInfo, contactInfo,innerRef }: IAbout) => {
   const [activeInfo, setActiveInfo] = useState(0);
   const [info, setInfo] = useState(aboutInfo);
   const [animationPlay, setAnimationPlay] = useState(false);
