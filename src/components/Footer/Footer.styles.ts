@@ -5,6 +5,7 @@ export const Wrapper = styled.footer`
   text-align: center;
   margin-bottom: 40px;
   position: relative;
+  background-color: #fff;
 
   &::before {
     content: '';
