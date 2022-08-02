@@ -2,6 +2,7 @@ import React, { RefObject, useContext, useEffect, useRef } from 'react';
 import { GrGithub } from 'react-icons/gr';
 import { SoundContext } from '../../context/SoundContext';
 import * as Styled from './ProjectSection.styles';
+import {BiUpArrow} from 'react-icons/bi'
 
 interface IProjects {
   projects: {
@@ -43,20 +44,28 @@ const ProjectSection = ({ projects }: IProjects) => {
               </ul>
             </Styled.PreviewText>
             <Styled.ButtonsWrapper>
-              <li onClick={soundClickSuccess}>
-                <a rel='noreferrer' target={'_blank'} href={project.demo}>
-                  Visit
-                </a>
-              </li>
-              <li onClick={soundClickSuccess}>
-                <a rel='noreferrer' target={'_blank'} href={project.code}>
-                  <GrGithub />
-                </a>
-              </li>
+              {project.demo ? (
+                <li onClick={soundClickSuccess}>
+                  <a rel='noreferrer' target={'_blank'} href={project.demo}>
+                    Visit
+                  </a>
+                </li>
+              ) : null}
+              {project.code ? (
+                <li onClick={soundClickSuccess}>
+                  <a rel='noreferrer' target={'_blank'} href={project.code}>
+                    <GrGithub />
+                  </a>
+                </li>
+              ) : null}
             </Styled.ButtonsWrapper>
           </Styled.ProjectCard>
         ))}
       </Styled.InnerWrapper>
+      <Styled.ScrollInfo>
+        <BiUpArrow/>
+        <p>Scroll for more</p>
+      </Styled.ScrollInfo>
     </Styled.Wrapper>
   );
 };

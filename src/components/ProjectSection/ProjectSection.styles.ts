@@ -24,6 +24,10 @@ export const InnerWrapper = styled.div`
     left: 24%;
     margin-top: 0;
   }
+  @media (max-width:992px) and (orientation: landscape) {
+    margin-top:70px;
+  }
+
 `;
 export const ProjectCard = styled.article`
   background-color: #fff;
@@ -32,6 +36,9 @@ export const ProjectCard = styled.article`
   box-shadow: 0 0 30px rgb(0 0 0 / 8%);
   transition: 0.4s;
   border-radius: 15px;
+  & h3 {
+    margin-bottom: 10px;
+  }
   cursor: pointer;
   &:hover {
     transform: scale(1.035);
@@ -53,6 +60,10 @@ export const Preview = styled.div<ICardProps>`
   @media (min-width: 1200px) {
     height: 300px;
   }
+  @media (max-width:992px) and (orientation: landscape) {
+    display: none;
+  }
+
   &::before {
     content:'';
     position: absolute;
@@ -118,3 +129,35 @@ export const ButtonsWrapper = styled.ul`
     font-size: 18px;
   }
 `;
+
+
+export const ScrollInfo = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: ${({ theme }) => theme.primary};
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  @media (max-width:992px) and (orientation: landscape) {
+    display: none;
+  }
+
+  & svg {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    animation: moveUp 0.5s infinite alternate;
+  }
+
+  @keyframes moveUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+  }
+`

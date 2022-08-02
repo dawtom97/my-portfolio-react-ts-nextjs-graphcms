@@ -9,16 +9,6 @@ import { Heading } from '../src/components/Heading/Heading';
 export const getStaticProps = async () => {
   const query = gql`
     query ProjectsQuery {
-      contactInfo {
-        githubLink
-        facebookLink
-        email
-        residence
-        linkedinLink
-        telephone
-        freelance
-        instagramLink
-      }
       projectsInfo {
         image {
           url
@@ -36,15 +26,14 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      contactInfo,
       projectsInfo
     },
   };
 };
 
-const projects = ({ contactInfo,projectsInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const projects = ({ projectsInfo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <ProjectsTemplate links={contactInfo}>
+    <ProjectsTemplate>
       <Heading level='h1'>My projects</Heading>
       <Heading level='h3'>In the following cases, I also created design</Heading>
       <ProjectSection projects={projectsInfo}/>
