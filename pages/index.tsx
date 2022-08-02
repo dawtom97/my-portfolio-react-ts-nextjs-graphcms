@@ -25,6 +25,7 @@ export const getStaticProps = async () => {
         linkedinLink
         telephone
         freelance
+        instagramLink
       }
       skills {
         title
@@ -69,7 +70,7 @@ const Home = ({
 
   return (
     <div className='app'>
-      <MainTemplate>
+      <MainTemplate links={contactInfo[0]}>
         <div>
           <BannerSection
             contactScroll={() => handleSmoothScroll(contactRef)}

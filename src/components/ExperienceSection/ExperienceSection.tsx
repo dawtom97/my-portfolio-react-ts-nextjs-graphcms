@@ -59,9 +59,9 @@ export const ExperienceSection = ({ experiences }: IExperience) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Styled.ButtonsWrapper>
-         <Link href='/reference'>Reference</Link>
-         <Link href='/projects'>Projects</Link>
+      <Styled.ButtonsWrapper onClick={soundClickSuccess}>
+         <Link  href='/reference'>Reference</Link>
+         <Link  href='/projects'>Projects</Link>
       </Styled.ButtonsWrapper>
 
     </Styled.Wrapper>
