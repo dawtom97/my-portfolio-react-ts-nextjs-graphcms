@@ -79,7 +79,7 @@ export const ContactSection = ({ innerRef, contactInfo }: IContact) => {
   };
 
   return (
-    <Styled.Wrapper ref={innerRef}>
+    <Styled.Wrapper ref={innerRef} id='contact'>
       <Heading level='h2'>Contact</Heading>
       <Heading level='h3'>LET&apos;S TALK</Heading>
       <Styled.InnerWrapper>

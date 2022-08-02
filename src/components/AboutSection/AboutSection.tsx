@@ -34,7 +34,7 @@ export const AboutSection = ({ aboutInfo, contactInfo,innerRef }: IAbout) => {
     }, 1500);
   };
   return (
-    <Styled.Wrapper ref={innerRef}>
+    <Styled.Wrapper ref={innerRef} id='about'>
       <Styled.TitleWrapper>
         <Heading level='h2'>About Me</Heading>
         <div>

@@ -9,8 +9,13 @@ import { SoundContext } from '../../context/SoundContext';
 
 export const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const { pathname } = useRouter();
+  const { pathname, asPath } = useRouter();
   const { soundClickSuccess } = useContext(SoundContext);
+
+  const handleLinkClick = () => {
+    setOpen(false);
+    soundClickSuccess();
+  }
 
   return (
     <Styled.Wrapper>
@@ -24,32 +29,32 @@ export const Navbar = () => {
       />
       <Styled.Nav isVisible={isOpen}>
         <ul>
-          <li onClick={soundClickSuccess}>
+          <li onClick={handleLinkClick}>
             <Link href='/' passHref>
-              <Styled.CustomLink isActive={pathname === '/' ? true : false}>HOME</Styled.CustomLink>
+              <Styled.CustomLink isActive={asPath === '/' ? true : false}>HOME</Styled.CustomLink>
             </Link>
           </li>
-          <li onClick={soundClickSuccess}>
+          <li onClick={handleLinkClick}>
             <Link href='/projects' passHref>
               <Styled.CustomLink
-                isActive={pathname === '/projects' ? true : false}
+                isActive={asPath === '/projects' ? true : false}
                 href='/projects'
               >
                 PROJECTS
               </Styled.CustomLink>
             </Link>
           </li>
-          <li onClick={soundClickSuccess}>
-            <Link href='/' passHref>
-              <Styled.CustomLink>ABOUT</Styled.CustomLink>
+          <li onClick={handleLinkClick}>
+            <Link href={pathname === '/' ? '#about' : '/'} passHref>
+              <Styled.CustomLink isActive={asPath === '/#about' ? true : false}>ABOUT</Styled.CustomLink>
             </Link>
           </li>
-          <li onClick={soundClickSuccess}>
-            <Link href='/' passHref>
-              <Styled.CustomLink>CONTACTS</Styled.CustomLink>
+          <li onClick={handleLinkClick}>
+            <Link href={pathname === '/' ? '#contact' : '/'} passHref>
+              <Styled.CustomLink  isActive={asPath === '/#contact' ? true : false}>CONTACT</Styled.CustomLink>
             </Link>
           </li>
-          <Button onClick={soundClickSuccess}>
+          <Button onClick={handleLinkClick}>
             DOWNLOAD CV <FaDownload />
           </Button>
         </ul>
