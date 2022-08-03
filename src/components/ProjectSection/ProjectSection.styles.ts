@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 interface ICardProps {
-    image: {
-      url: string;
-    };
-  }
+  image: {
+    url: string;
+  };
+}
 
 export const Wrapper = styled.div`
   min-height: 600vh;
@@ -13,14 +13,13 @@ export const Wrapper = styled.div`
 `;
 export const InnerWrapper = styled.div`
   position: fixed;
- //top: 30%;
   left: calc(50% - 150px);
-  min-height: 40vh;
+  min-height: 30vh;
   display: flex;
   margin-top: 100px;
   gap: 70px;
   @media (min-width:992px) {
-    min-height: 50vh;
+    min-height: 40vh;
     left: 24%;
     margin-top: 0;
   }
@@ -67,7 +66,7 @@ export const Preview = styled.div<ICardProps>`
   &::before {
     content:'';
     position: absolute;
-    background-color: ${({theme})=>theme.primary};
+    background-color: ${({ theme }) => theme.primary};
     top:0;
     left:0;
     opacity: 0.9;
@@ -90,7 +89,12 @@ export const PreviewText = styled.div`
     font-size: 1.3rem;
   }
   & p {
-    min-height: 70px;
+    display: none;
+    @media (min-width: 1600px) {
+      display: block;
+      min-height: 70px;
+    }
+
   }
 `;
 export const ButtonsWrapper = styled.ul`
@@ -140,7 +144,7 @@ export const ScrollInfo = styled.div`
   font-weight: 700;
   font-size: 1.5rem;
   text-align: center;
-  @media (max-width:992px) and (orientation: landscape) {
+  @media (max-width:1400px) and (orientation: landscape) {
     display: none;
   }
 

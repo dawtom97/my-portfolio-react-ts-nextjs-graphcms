@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div``;
 export const InnerWrapper = styled.main`
+ 
   & > h3 {
     display: none;
     margin-bottom: 30px;
@@ -12,16 +13,18 @@ export const InnerWrapper = styled.main`
   & h1 {
     display: none;
   }
-  @media (min-width: 992px) {
+  @media (min-width:992px) {
+    margin-top: 135px;
+  }
+  @media (min-width: 1400px) {
     & h1,
     h3 {
       display: block;
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     margin-left: 24%;
     margin-right: 120px;
-    margin-top: 135px;
     position: relative;
 
     &::before {
