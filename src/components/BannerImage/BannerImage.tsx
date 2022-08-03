@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background-image: url('/elan.jpg');
+    background-image: url('/me.jpg');
     height: 450px;
     background-size: cover;
     position: relative;

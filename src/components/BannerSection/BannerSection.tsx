@@ -21,9 +21,7 @@ export const BannerSection = ({ aboutScroll, contactScroll }: IBanner) => {
         wrapper='h3'
       />
       <p>
-        Hello! I am an Android and Data engineer based in Paris France. The guiding quasar of my
-        journey is working on solutions that leverage best-practice technologies to deliver a top
-        user experience. I love all things android.
+        Hello! I am an Front-End and Web Developer based in Katowice Poland. I usually work in Javascript related technologies. In addition, I often teach others and design the appearance of the application as a hobby
       </p>
 
       <Styled.ButtonsWrapper>
