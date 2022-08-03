@@ -45,8 +45,13 @@ export const Navbar = () => {
             </Link>
           </li>
           <li onClick={handleLinkClick}>
-            <Link href={pathname === '/' ? '#about' : '/'} passHref>
-              <Styled.CustomLink isActive={asPath === '/#about' ? true : false}>ABOUT</Styled.CustomLink>
+            <Link href='/reference' passHref>
+              <Styled.CustomLink
+                isActive={asPath === '/reference' ? true : false}
+                href='/reference'
+              >
+                REFERENCE
+              </Styled.CustomLink>
             </Link>
           </li>
           <li onClick={handleLinkClick}>
