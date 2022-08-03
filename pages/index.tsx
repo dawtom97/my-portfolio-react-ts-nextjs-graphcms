@@ -4,7 +4,7 @@ import { cmsConnect } from '../src/utils/cmsConnect';
 import { AboutSection } from '../src/components/AboutSection/AboutSection';
 import MainTemplate from '../src/templates/MainTemplate/MainTemplate';
 import { BannerSection } from '../src/components/BannerSection/BannerSection';
-import { RefObject, useContext, useRef, useState } from 'react';
+import { RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ContactSection } from '../src/components/ContactSection/ContactSection';
 import { SoundContext } from '../src/context/SoundContext';
 import { SkillsSection } from '../src/components/SkillsSection/SkillsSection';

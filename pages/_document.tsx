@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
+import loader from '../src/loader';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -30,11 +31,16 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=optional" rel="stylesheet"></link>
+          <link
+            href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=optional'
+            rel='stylesheet'
+          ></link>
+        
         </Head>
         <body>
+    
           <Main />
-          <div id="modal"></div>
+          <div id='modal'></div>
           <NextScript />
         </body>
       </Html>

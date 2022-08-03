@@ -7,7 +7,7 @@ interface ICardProps {
   }
 
 export const Wrapper = styled.div`
-  min-height: 400vh;
+  min-height: 600vh;
   position: relative;
   overflow: hidden;
 `;
