@@ -1,8 +1,15 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps | any> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -34,10 +41,9 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=optional'
             rel='stylesheet'
           ></link>
-        
+          <title>Dawid Tomczyk</title>
         </Head>
         <body>
-    
           <Main />
           <div id='modal'></div>
           <NextScript />
