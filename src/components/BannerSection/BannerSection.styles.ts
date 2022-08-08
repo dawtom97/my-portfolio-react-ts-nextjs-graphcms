@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   @media (min-width: 992px) {
     margin: 0 25px;
     min-height: 100vh;
-    padding: 30px 0 50px;
+    padding: calc(10% + 80px) 0 50px;
     text-align: initial;
     & button {
       margin: 0;

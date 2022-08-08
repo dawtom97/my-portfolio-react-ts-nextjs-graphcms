@@ -57,7 +57,7 @@ export const Preview = styled.div<ICardProps>`
   position: relative;
   transition: 0.4s;
   @media (min-width: 1200px) {
-    height: 300px;
+    height: 200px;
   }
   @media (max-width:992px) and (orientation: landscape) {
     display: none;

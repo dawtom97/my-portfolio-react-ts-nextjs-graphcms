@@ -13,8 +13,9 @@ export const InnerWrapper = styled.main`
   & h1 {
     display: none;
   }
+
   @media (min-width:992px) {
-    margin-top: 135px;
+    margin-top: 155px;
   }
   @media (min-width: 1400px) {
     & h1,
