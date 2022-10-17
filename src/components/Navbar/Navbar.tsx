@@ -61,7 +61,6 @@ export const Navbar = () => {
           </li>
           <Button onClick={handleLinkClick}>
              <a href="../../assets/cv.pdf" download="cv.pdf">  DOWNLOAD CV <FaDownload /></a>      
-<!--             DOWNLOAD CV <FaDownload /> -->
           </Button>
         </ul>
       </Styled.Nav>
