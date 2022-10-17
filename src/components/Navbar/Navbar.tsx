@@ -60,7 +60,7 @@ export const Navbar = () => {
             </Link>
           </li>
           <Button onClick={handleLinkClick}>
-           DOWNLOAD CV <FaDownload />   
+           HELLO THERE  
           </Button>
         </ul>
       </Styled.Nav>
